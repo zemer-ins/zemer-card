@@ -13,9 +13,8 @@
       theme: {
         extend: {
           colors: {
-            navy:   { DEFAULT: '#0f2044', light: '#1a3260', dark: '#091529' },
-            gold:   { DEFAULT: '#c9a84c', light: '#e2c97e', dark: '#a8872e' },
-            graphite: { DEFAULT: '#2d3748', light: '#4a5568' }
+            navy:  { DEFAULT: '#0b1f3a', light: '#132d52', dark: '#060f1e' },
+            green: { DEFAULT: '#22c55e', light: '#4ade80', dark: '#15803d' },
           },
           fontFamily: { heebo: ['Heebo', 'sans-serif'] },
           keyframes: {
@@ -41,9 +40,8 @@
   <style>
     body { font-family: 'Heebo', sans-serif; }
 
-    /* Gold gradient text */
-    .gold-text {
-      background: linear-gradient(90deg, #c9a84c, #e2c97e, #c9a84c);
+    .accent-text {
+      background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -51,73 +49,64 @@
       animation: shimmer 3s linear infinite;
     }
 
-    /* Card glass effect */
     .glass {
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(201,168,76,0.18);
+      border: 1px solid rgba(34,197,94,0.18);
     }
 
-    /* Divider */
-    .gold-divider {
+    .accent-divider {
       height: 2px;
-      background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      background: linear-gradient(90deg, transparent, #22c55e, transparent);
     }
 
-    /* CTA button base */
     .cta-btn {
-      transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+      transition: transform 0.18s ease, opacity 0.18s ease;
     }
     .cta-btn:active { transform: scale(0.96); }
 
-    /* Service card hover */
     .service-card {
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
     .service-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(201,168,76,0.5);
+      transform: translateX(-3px);
+      border-color: rgba(34,197,94,0.45);
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: #0f2044; }
-    ::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 2px; }
+    ::-webkit-scrollbar-track { background: #060f1e; }
+    ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 2px; }
   </style>
 </head>
-<body class="min-h-screen bg-navy-dark flex items-start justify-center py-8 px-4"
-      style="background: radial-gradient(ellipse at top, #1a3260 0%, #091529 70%);">
+<body class="min-h-screen flex items-start justify-center py-8 px-4"
+      style="background: radial-gradient(ellipse at top, #132d52 0%, #060f1e 70%);">
 
-  <!-- ═══════════════════════════════════════════
-       CARD WRAPPER
-       ═══════════════════════════════════════════ -->
   <div class="w-full max-w-sm">
 
     <!-- ─── HEADER ─── -->
     <div class="animate-fade-up text-center mb-6">
 
-      <!-- Logo — initials placeholder -->
-      <div class="mx-auto mb-4 w-24 h-24 rounded-full flex items-center justify-center
-                  shadow-xl border-2 border-gold relative"
-           style="background: linear-gradient(145deg, #1a3260 0%, #0a1a3a 100%);">
-        <!-- outer glow ring -->
-        <div class="absolute inset-0 rounded-full"
-             style="box-shadow: 0 0 24px rgba(201,168,76,0.25);"></div>
-        <span class="gold-text text-3xl font-bold tracking-tight select-none">א.ז</span>
+      <!-- Real logo -->
+      <div class="mx-auto mb-4 w-28 h-28 rounded-full flex items-center justify-center
+                  shadow-xl relative overflow-hidden"
+           style="border: 2px solid rgba(34,197,94,0.6);
+                  box-shadow: 0 0 28px rgba(34,197,94,0.2);">
+        <img src="logo.jpg" alt="לוגו זמר ביטוח ופיננסים"
+             class="w-full h-full object-cover rounded-full" />
       </div>
 
-      <!-- Business name -->
-      <h1 class="text-2xl font-bold tracking-wide gold-text mb-1">
+      <h1 class="text-2xl font-bold tracking-wide accent-text mb-1">
         זמר ביטוח ופיננסים
       </h1>
-
       <p class="text-white text-xl font-bold mt-1">אור זמר</p>
       <p class="text-gray-400 text-sm font-light mt-1">סוכן ביטוח מורשה</p>
-      <p class="text-gray-600 text-xs mt-1">רישיון מס׳ <span dir="ltr" style="display:inline-block">L-00137567</span></p>
+      <p class="text-gray-600 text-xs mt-1">
+        רישיון מס׳ <span dir="ltr" style="display:inline-block">L-00137567</span>
+      </p>
     </div>
 
-    <!-- ─── GOLD DIVIDER ─── -->
-    <div class="gold-divider mb-6 animate-fade-up"></div>
+    <!-- ─── DIVIDER ─── -->
+    <div class="accent-divider mb-6 animate-fade-up"></div>
 
     <!-- ─── ABOUT ─── -->
     <div class="animate-fade-up-slow glass rounded-2xl p-4 mb-5 text-center shadow-md">
@@ -128,7 +117,7 @@
       </p>
     </div>
 
-    <!-- ─── CTA BUTTONS (3) ─── -->
+    <!-- ─── CTA BUTTONS ─── -->
     <div class="animate-fade-up-slow grid grid-cols-3 gap-3 mb-5">
 
       <!-- WhatsApp -->
@@ -136,7 +125,7 @@
          target="_blank" rel="noopener"
          class="cta-btn glass rounded-2xl py-4 px-2 flex flex-col items-center gap-2 shadow hover:opacity-90">
         <div class="w-11 h-11 rounded-full flex items-center justify-center"
-             style="background: linear-gradient(135deg,#1a472a,#0d2b1a);">
+             style="background: linear-gradient(135deg,#14532d,#052e16);">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#25D366">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
@@ -148,8 +137,8 @@
       <a href="tel:0502278922"
          class="cta-btn glass rounded-2xl py-4 px-2 flex flex-col items-center gap-2 shadow hover:opacity-90">
         <div class="w-11 h-11 rounded-full flex items-center justify-center"
-             style="background: linear-gradient(135deg,#1e3a6e,#0f2044);">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gold" viewBox="0 0 24 24" fill="currentColor">
+             style="background: linear-gradient(135deg,#132d52,#0b1f3a);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="#22c55e">
             <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.32.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.26.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/>
           </svg>
         </div>
@@ -161,9 +150,9 @@
          target="_blank" rel="noopener"
          class="cta-btn glass rounded-2xl py-4 px-2 flex flex-col items-center gap-2 shadow hover:opacity-90">
         <div class="w-11 h-11 rounded-full flex items-center justify-center"
-             style="background: linear-gradient(135deg,#05203a,#0a3060);">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gold" viewBox="0 0 24 24"
-               fill="none" stroke="currentColor" stroke-width="2">
+             style="background: linear-gradient(135deg,#132d52,#060f1e);">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24"
+               fill="none" stroke="#22c55e" stroke-width="2">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
             <circle cx="12" cy="9" r="2.5"/>
           </svg>
@@ -175,94 +164,97 @@
 
     <!-- ─── SERVICES ─── -->
     <div class="animate-fade-up-late mb-5">
-      <h2 class="text-gold text-sm font-semibold mb-3 text-center tracking-widest uppercase">
+      <h2 class="accent-text text-sm font-semibold mb-3 text-center tracking-widest uppercase">
         תחומי התמחות
       </h2>
-      <div class="grid grid-cols-2 gap-3">
+      <div class="flex flex-col gap-2">
 
-        <div class="service-card glass rounded-2xl p-4 text-center border border-gold/10 shadow">
-          <div class="text-2xl mb-2">🏦</div>
-          <p class="text-white text-xs font-semibold">ביטוח פנסיוני</p>
-          <p class="text-gray-500 text-xs mt-1">קרן פנסיה · ביטוח מנהלים</p>
+        <div class="service-card glass rounded-xl px-4 py-3 flex items-center gap-3 border border-green/10 shadow">
+          <span class="text-2xl flex-shrink-0">🏦</span>
+          <div>
+            <p class="text-white text-sm font-semibold">ביטוח פנסיוני</p>
+            <p class="text-gray-500 text-xs">קרן פנסיה · ביטוח מנהלים</p>
+          </div>
         </div>
 
-        <div class="service-card glass rounded-2xl p-4 text-center border border-gold/10 shadow">
-          <div class="text-2xl mb-2">📈</div>
-          <p class="text-white text-xs font-semibold">קרנות השתלמות</p>
-          <p class="text-gray-500 text-xs mt-1">חיסכון לטווח בינוני</p>
+        <div class="service-card glass rounded-xl px-4 py-3 flex items-center gap-3 border border-green/10 shadow">
+          <span class="text-2xl flex-shrink-0">📊</span>
+          <div>
+            <p class="text-white text-sm font-semibold">פיננסים</p>
+            <p class="text-gray-500 text-xs">תכנון פיננסי אישי ועסקי</p>
+          </div>
         </div>
 
-        <div class="service-card glass rounded-2xl p-4 text-center border border-gold/10 shadow">
-          <div class="text-2xl mb-2">🏥</div>
-          <p class="text-white text-xs font-semibold">ביטוחי בריאות</p>
-          <p class="text-gray-500 text-xs mt-1">בריאות · סיעוד · שיניים</p>
+        <div class="service-card glass rounded-xl px-4 py-3 flex items-center gap-3 border border-green/10 shadow">
+          <span class="text-2xl flex-shrink-0">🏠</span>
+          <div>
+            <p class="text-white text-sm font-semibold">ביטוחי חיים ומשכנתאות</p>
+            <p class="text-gray-500 text-xs">הגנה על המשפחה והנכס</p>
+          </div>
         </div>
 
-        <div class="service-card glass rounded-2xl p-4 text-center border border-gold/10 shadow">
-          <div class="text-2xl mb-2">🌅</div>
-          <p class="text-white text-xs font-semibold">תכנון פרישה</p>
-          <p class="text-gray-500 text-xs mt-1">בניית מסלול אישי לגיל פרישה</p>
+        <div class="service-card glass rounded-xl px-4 py-3 flex items-center gap-3 border border-green/10 shadow">
+          <span class="text-2xl flex-shrink-0">🎓</span>
+          <div>
+            <p class="text-white text-sm font-semibold">קופות גמל והשתלמות</p>
+            <p class="text-gray-500 text-xs">חיסכון חכם לטווח בינוני וארוך</p>
+          </div>
+        </div>
+
+        <div class="service-card glass rounded-xl px-4 py-3 flex items-center gap-3 border border-green/10 shadow">
+          <span class="text-2xl flex-shrink-0">📈</span>
+          <div>
+            <p class="text-white text-sm font-semibold">מכשירי חיסכון והשקעה</p>
+            <p class="text-gray-500 text-xs">פתרונות להגדלת ההון האישי</p>
+          </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ─── GOLD DIVIDER ─── -->
-    <div class="gold-divider mb-5 animate-fade-up-late"></div>
+    <!-- ─── DIVIDER ─── -->
+    <div class="accent-divider mb-5 animate-fade-up-late"></div>
 
-    <!-- ─── FOOTER / SOCIAL ─── -->
+    <!-- ─── FOOTER ─── -->
     <div class="animate-fade-up-late text-center">
-      <p class="text-gray-500 text-xs mb-3">עקבו אחרי ברשתות</p>
       <div class="flex justify-center gap-4 mb-4">
 
-        <!-- LinkedIn — ✏️ שנה YOUR_LINKEDIN לשם המשתמש שלך -->
-        <a href="https://linkedin.com/in/<!-- ✏️ -->YOUR_LINKEDIN"
+        <a href="https://linkedin.com/in/YOUR_LINKEDIN"
            target="_blank" rel="noopener"
            class="cta-btn w-10 h-10 rounded-full glass flex items-center justify-center
-                  border border-gold/20 hover:border-gold/60">
+                  border border-green/20 hover:border-green/60">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-400"
                viewBox="0 0 24 24" fill="currentColor">
-            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2
-                     2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
             <circle cx="4" cy="4" r="2"/>
           </svg>
         </a>
 
-        <!-- Facebook — ✏️ שנה YOUR_FACEBOOK לשם הדף שלך -->
-        <a href="https://facebook.com/<!-- ✏️ -->YOUR_FACEBOOK"
+        <a href="https://facebook.com/YOUR_FACEBOOK"
            target="_blank" rel="noopener"
            class="cta-btn w-10 h-10 rounded-full glass flex items-center justify-center
-                  border border-gold/20 hover:border-gold/60">
+                  border border-green/20 hover:border-green/60">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500"
                viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1
-                     1 0 011-1h3z"/>
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
           </svg>
         </a>
 
-        <!-- Email — ✏️ שנה לכתובת המייל שלך -->
-        <a href="mailto:<!-- ✏️ -->your@email.com"
+        <a href="mailto:your@email.com"
            class="cta-btn w-10 h-10 rounded-full glass flex items-center justify-center
-                  border border-gold/20 hover:border-gold/60">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold"
-               viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1
-                     0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  border border-green/20 hover:border-green/60">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+               fill="none" stroke="#22c55e" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
             <polyline points="22,6 12,13 2,6"/>
           </svg>
         </a>
       </div>
 
-      <!-- Bottom tagline -->
-      <p class="text-gray-600 text-xs">
-        © 2025 זמר ביטוח ופיננסים · כל הזכויות שמורות
-      </p>
-      <p class="text-gray-700 text-xs mt-1">
-        בעל רישיון כסוכן ביטוח לפי חוק הפיקוח על שירותים פיננסיים
-      </p>
+      <p class="text-gray-600 text-xs">© 2025 זמר ביטוח ופיננסים · כל הזכויות שמורות</p>
+      <p class="text-gray-700 text-xs mt-1">בעל רישיון כסוכן ביטוח לפי חוק הפיקוח על שירותים פיננסיים</p>
     </div>
 
-    <!-- Spacer -->
     <div class="h-8"></div>
   </div>
 
